@@ -31,11 +31,22 @@ var createSongRow = function (songNumber, songName, songLength) {
         }
     };
 
-    var onHover = function (event) {
-        // Placeholder for function logic
+    var onHover = function(event) {
+        var songNumberCell = $(this).find('.song-item-number');
+        var songNumber = songNumberCell.attr('data-song-number');
+
+        if (songNumber !== currentlyPlayingSong) {
+            songNumberCell.html(playButtonTemplate);
+        }
     };
-    var offHover = function (event) {
-        // Placeholder for function logic
+
+    var offHover = function(event) {
+        var songNumberCell = $(this).find('.song-item-number');
+        var songNumber = songNumberCell.attr('data-song-number');
+
+        if (songNumber !== currentlyPlayingSong) {
+            songNumberCell.html(songNumber);
+        }
     };
 
     // #1
